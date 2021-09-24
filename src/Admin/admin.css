@@ -1,0 +1,11 @@
+.active {
+    color: white !important;
+    background-color: #ef5350 !important;
+}
+
+.type {
+    color: inherit;
+    text-decoration: none;
+    font: bold Poppins 20px;
+    flex: 1
+}
