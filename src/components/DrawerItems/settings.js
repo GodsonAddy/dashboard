@@ -1,5 +1,4 @@
 import React from "react";
-import withDashboard from "../../HOC/wrappedComponent";
 import { Typography } from "@mui/material";
 import AdminDashboard from "../../Admin/admin-dashboard";
 

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { makeStyles, createStyles } from "@mui/styles";
 import { TextField, Divider, Typography } from "@mui/material";
 import {
   FormControl,
@@ -11,32 +10,11 @@ import {
 } from "@mui/material";
 import AdminDashboard from "../../Admin/admin-dashboard";
 
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    toolbar: {
-      margin: theme.spacing(0, 12),
-    },
-    bottom: {
-      marginBottom: "20px",
-    },
-    formcontrol: {
-      marginBottom: "20px",
-      minWidth: 120,
-    },
-    clear: {
-      marginTop: "10rem",
-    },
-    root: {
-      flexGrow: 1,
-    },
-  })
-);
 
 function Catalog(props) {
-  const classes = useStyles();
   const [status, setStatus] = useState("");
 
-  const handleChange = (event) => {
+  const handleStatus = (event) => {
     setStatus(event.target.value);
   };
 
@@ -70,7 +48,7 @@ function Catalog(props) {
             spacing={2}
             justifyContent="space-between"
           >
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={5}>
               <form>
                 <label> Name </label>
                 <br />
@@ -81,7 +59,9 @@ function Catalog(props) {
                   name="text"
                   autoComplete="name"
                   autoFocus
-                  className={classes.bottom}
+                  sx={{
+                    marginBottom: 2
+                  }}
                 />
                 <br />
                 <TextField
@@ -90,17 +70,24 @@ function Catalog(props) {
                   placeholder="Description"
                   multiline
                   variant="outlined"
-                  className={classes.bottom}
+                  sx={{
+                    marginBottom: 2
+                  }}
                 />
                 <br />
-                <FormControl variant="outlined" className={classes.formcontrol}>
+                <FormControl
+                  variant="outlined"
+                  sx={{
+                    marginBottom: 2,
+                    minWidth: 120
+                  }}
+                >
                   <label id="demo-simple-select-outlined-label">Status</label>
                   <Select
                     labelId="demo-simple-select-outlined-label"
                     id="demo-simple-select-outlined"
                     value={status}
-                    onChange={handleChange}
-                    label="Age"
+                    onChange={handleStatus}
                   >
                     <MenuItem value=""> None </MenuItem>
                     <MenuItem value={10}>Ten</MenuItem>
@@ -115,7 +102,9 @@ function Catalog(props) {
                   container
                   direction="row"
                   justifyContent="space-between"
-                  className={classes.bottom}
+                  sx={{
+                    marginBottom: 2
+                  }}
                 >
                   <TextField
                     id="date"
@@ -140,7 +129,7 @@ function Catalog(props) {
               </form>
             </Grid>
             <Divider orientation="vertical" flexItem />
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={5}>
               <form>
                 <label> Catalogs </label>
                 <br />
@@ -152,7 +141,9 @@ function Catalog(props) {
                   name="text"
                   autoComplete="name"
                   autoFocus
-                  className={classes.bottom}
+                  sx={{
+                    marginBottom: 2
+                  }}
                 />
                 <br />
                 <TextField
@@ -161,10 +152,18 @@ function Catalog(props) {
                   placeholder="Description"
                   multiline
                   variant="outlined"
-                  className={classes.bottom}
+                  sx={{
+                    marginBottom: 2
+                  }}
                 />
                 <br />
-                <FormControl variant="outlined" className={classes.formcontrol}>
+                <FormControl
+                  variant="outlined"
+                  sx={{
+                    marginBottom: 2,
+                    minWidth: 120
+                  }}
+                >
                   <InputLabel id="demo-simple-select-outlined-label">
                     Status
                   </InputLabel>
@@ -172,7 +171,7 @@ function Catalog(props) {
                     labelId="demo-simple-select-outlined-label"
                     id="demo-simple-select-outlined"
                     value={status}
-                    onChange={handleChange}
+                    onChange={handleStatus}
                   >
                     <MenuItem value="">None</MenuItem>
                     <MenuItem value={10}>Ten</MenuItem>
@@ -185,14 +184,15 @@ function Catalog(props) {
                   id="outlined-basic"
                   label="Version"
                   variant="outlined"
-                  className={classes.bottom}
+                  sx={{
+                    marginBottom: 2
+                  }}
                 />
                 <br />
                 <Button
                   type="submit"
                   variant="contained"
                   color="primary"
-                  className={classes.submit}
                 >
                   Add
                 </Button>
@@ -206,7 +206,9 @@ function Catalog(props) {
             direction="row"
             spacing={2}
             justifyContent="space-between"
-            className={classes.clear}
+            sx={{
+              marginTop: 10
+            }}
           >
             <Button variant="outlined" color="primary" onClick={handleClear}>
               clear
